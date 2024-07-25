@@ -1,4 +1,9 @@
 package org.example.instructions
 
-class SetAInstruction {
+import org.example.CPU
+
+class SetAInstruction : Instruction() {
+    override fun execute(cpu: CPU, instruction: String) {
+
+    }
 }

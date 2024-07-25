@@ -1,4 +1,9 @@
 package org.example.instructions
 
-class ConvertByteToAsciiInstruction {
+import org.example.CPU
+
+class ConvertByteToAsciiInstruction : Instruction() {
+    override fun execute(cpu: CPU, instruction: String) {
+
+    }
 }

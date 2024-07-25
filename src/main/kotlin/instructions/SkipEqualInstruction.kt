@@ -1,4 +1,9 @@
 package org.example.instructions
 
-class SkipEqualInstruction {
+import org.example.CPU
+
+class SkipEqualInstruction : Instruction() {
+    override fun execute(cpu: CPU, instruction: String) {
+
+    }
 }

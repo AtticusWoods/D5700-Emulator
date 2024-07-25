@@ -1,4 +1,9 @@
 package org.example.instructions
 
-class JumpInstruction {
+import org.example.CPU
+
+class JumpInstruction : Instruction() {
+    override fun execute(cpu: CPU, instruction: String) {
+
+    }
 }

@@ -1,4 +1,9 @@
 package org.example.instructions
 
-class ConvertToBase10Instruction {
+import org.example.CPU
+
+class ConvertToBase10Instruction : Instruction() {
+    override fun execute(cpu: CPU, instruction: String) {
+
+    }
 }

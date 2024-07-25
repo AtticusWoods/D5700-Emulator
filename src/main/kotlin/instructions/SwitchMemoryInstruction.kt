@@ -1,4 +1,9 @@
 package org.example.instructions
 
-class SwitchMemoryInstruction {
+import org.example.CPU
+
+class SwitchMemoryInstruction : Instruction() {
+    override fun execute(cpu: CPU, instruction: String) {
+
+    }
 }
