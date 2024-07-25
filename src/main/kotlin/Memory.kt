@@ -9,7 +9,7 @@ class Memory {
         return if (address < ram.size) {
             ram[address]
         } else {
-            rom[address - ram.size]
+            throw IllegalArgumentException("Address out of bounds")
         }
     }
 
@@ -25,7 +25,16 @@ class Memory {
         if (address < ram.size) {
             ram[address] = value
         } else {
-            throw IllegalAccessException("Cannot write to ROM")
+            throw IllegalArgumentException("Address out of bounds")
+
+        }
+    }
+
+    fun writeROM(address: Int, value: Byte) {
+        if (address < rom.size) {
+            rom[address] = value
+        } else {
+            throw IllegalArgumentException("Address out of bounds")
         }
     }
 
