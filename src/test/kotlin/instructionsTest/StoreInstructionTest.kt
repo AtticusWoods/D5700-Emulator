@@ -16,7 +16,7 @@ class StoreInstructionTest {
         // Initialize the register
         cpu.registers[1] = 5 // xRegister
 
-        // Create the AddInstruction instance
+        // Create the StoreInstruction instance
         val addInstruction = StoreInstruction()
 
         // Create an instruction string "ABC" where A is the opcode, B is xRegister, C is yRegister, D is destination register
