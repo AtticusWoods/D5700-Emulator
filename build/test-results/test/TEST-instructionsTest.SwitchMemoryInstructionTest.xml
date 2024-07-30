@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="instructionsTest.SwitchMemoryInstructionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-07-30T17:51:35" hostname="FINCHCOMP" time="0.08">
+  <properties/>
+  <testcase name="testSwitchMemoryInstruction()" classname="instructionsTest.SwitchMemoryInstructionTest" time="0.08"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
