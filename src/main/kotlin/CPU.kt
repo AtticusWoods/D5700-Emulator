@@ -7,7 +7,7 @@ class CPU {
     val timer = Timer()
     val memory = Memory()
     val screen = Screen()
-    val keyboard = Keyboard()
+    var keyboard = Keyboard()
     val instructionSet = InstructionSet()
 
     fun executeInstruction(instruction: String) {

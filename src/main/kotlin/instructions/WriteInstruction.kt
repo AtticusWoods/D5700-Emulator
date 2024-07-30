@@ -12,8 +12,9 @@ class WriteInstruction : Instruction() {
         val address = cpu.addressRegister
 
         // Write the value to memory
-        if (cpu.memory.memoryFlag == 1) {
+        if (cpu.memory.memoryFlag == 2) {
             // write ROM if memory flag M is 1
+            // For Future proofing like assignment said
             cpu.memory.writeROM(address,registerValue)
         } else {
             // write RAM otherwise
