@@ -1,7 +1,7 @@
 package org.example
 
 class Memory {
-    private val ram: ByteArray = ByteArray(4096) //size of 4KB
+    val ram: ByteArray = ByteArray(4096) //size of 4KB
     private val rom: ByteArray = ByteArray(4096)
     var memoryFlag: Int = 0
 
