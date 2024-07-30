@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="instructionsTest.ReadTInstructionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-07-30T18:28:05" hostname="FINCHCOMP" time="0.079">
+  <properties/>
+  <testcase name="testReadTInstruction()" classname="instructionsTest.ReadTInstructionTest" time="0.079"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

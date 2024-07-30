@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="instructionsTest.SetTInstructionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-07-30T18:19:48" hostname="FINCHCOMP" time="0.093">
-  <properties/>
-  <testcase name="testSetTInstruction()" classname="instructionsTest.SetTInstructionTest" time="0.093"/>
-  <system-out><![CDATA[10
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
