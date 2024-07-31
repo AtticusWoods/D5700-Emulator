@@ -14,7 +14,7 @@ class Emulator {
             if (instruction == "break") break // todo figure out break point
             cpu.executeInstruction(instruction)
             cpu.timer.decrement()
-            cpu.screen.render()
+            cpu.screen.display()
         }
     }
 }
