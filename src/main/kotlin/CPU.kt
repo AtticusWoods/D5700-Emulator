@@ -8,7 +8,7 @@ class CPU {
     val memory = Memory()
     val screen = Screen()
     var keyboard = Keyboard()
-    val instructionSet = InstructionSet()
+    val instructionSet = InstructionSet
 
     fun executeInstruction(instruction: String) {
         instructionSet.execute(instruction, this)

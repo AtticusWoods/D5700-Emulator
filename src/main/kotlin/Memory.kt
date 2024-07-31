@@ -1,8 +1,9 @@
 package org.example
 
 class Memory {
+    var programSize: Int = 0
     val ram: ByteArray = ByteArray(4096) //size of 4KB
-    private val rom: ByteArray = ByteArray(4096)
+    val rom: ByteArray = ByteArray(4096)
     var memoryFlag: Int = 0
 
     fun read(address: Int): Byte {

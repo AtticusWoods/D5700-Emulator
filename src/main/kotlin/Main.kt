@@ -1,7 +1,19 @@
 package org.example
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
+    val emulator = Emulator()
 
+    println("Enter the path to the program file:")
+    val filePath = readlnOrNull()
+
+    if (!filePath.isNullOrEmpty()) {
+        try {
+            emulator.loadProgram(filePath)
+            emulator.run()
+        } catch (e: Exception) {
+            println("Error: ${e.message}")
+        }
+    } else {
+        println("Invalid file path")
+    }
 }

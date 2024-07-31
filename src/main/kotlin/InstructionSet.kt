@@ -2,7 +2,7 @@ package org.example
 
 import org.example.instructions.*
 
-class InstructionSet {
+object   InstructionSet {
     private val instructions: MutableMap<String, Instruction> = mutableMapOf()
 
     init {

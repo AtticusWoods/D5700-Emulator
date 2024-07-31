@@ -26,16 +26,19 @@ class Screen() {
     }
 
     fun display() {
+        println("========")
         for (row in 0 until height) {
             for (col in 0 until width) {
                 val char = ram[row * width + col]
                 if (char.toInt() == 0) {
-                    print(" ") // Empty space for 0 value
+                    print("█") // Empty space for 0 value
                 } else {
                     print(char.toChar())
                 }
             }
             println()
         }
+        println("========")
+
     }
 }
