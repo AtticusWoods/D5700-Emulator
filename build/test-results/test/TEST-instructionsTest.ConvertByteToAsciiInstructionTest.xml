@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="instructionsTest.ConvertByteToAsciiInstructionTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-07-31T16:15:01" hostname="FINCHCOMP" time="0.056">
+  <properties/>
+  <testcase name="testConvertByteToAsciiInstruction()" classname="instructionsTest.ConvertByteToAsciiInstructionTest" time="0.05"/>
+  <testcase name="testConvertByteToAsciiInstructionValueOutOfRange()" classname="instructionsTest.ConvertByteToAsciiInstructionTest" time="0.004"/>
+  <system-out><![CDATA[65
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
