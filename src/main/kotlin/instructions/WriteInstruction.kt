@@ -12,10 +12,11 @@ class WriteInstruction : Instruction() {
         val address = cpu.addressRegister
 
         // Write the value to memory
-        if (cpu.memory.memoryFlag == 2) {
+        if (cpu.memory.memoryFlag == 1) {
             // write ROM if memory flag M is 1
+            throw IllegalArgumentException("Cannot write to Rom")
             // For Future proofing like assignment said
-            cpu.memory.writeROM(address,registerValue)
+            //cpu.memory.writeROM(address,registerValue)
         } else {
             // write RAM otherwise
             cpu.memory.write(address, registerValue)

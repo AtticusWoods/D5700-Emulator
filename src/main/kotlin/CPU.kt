@@ -10,7 +10,14 @@ class CPU {
     var keyboard = Keyboard()
     val instructionSet = InstructionSet
 
-    fun executeInstruction(instruction: String) {
-        instructionSet.execute(instruction, this)
+
+    init {
+        // Start the timer when the CPU is initialized
+        timer.start()
+    }
+
+    fun stop() {
+        // Stop the timer thread when the CPU is stopped
+        timer.stop()
     }
 }

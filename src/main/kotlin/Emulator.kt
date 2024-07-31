@@ -25,5 +25,7 @@ class Emulator {
                 break
             }
         }
+        cpu.stop() // Stop the timer when the program completes
+        println("Program has completed execution")
     }
 }
