@@ -10,7 +10,6 @@ class CPU {
     var keyboard = Keyboard()
     val instructionSet = InstructionSet
 
-
     init {
         // Start the timer when the CPU is initialized
         timer.start()

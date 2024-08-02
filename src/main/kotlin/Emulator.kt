@@ -4,20 +4,22 @@ import java.io.File
 
 class Emulator {
     private val cpu = CPU()
+    private val memory = cpu.memory
+    private val programCounter = cpu.programCounter
 
     fun loadProgram(filePath: String) {
         val file = File(filePath)
         val programBytes = file.readBytes()
-        System.arraycopy(programBytes, 0, cpu.memory.rom, 0, programBytes.size)
-        cpu.memory.programSize = programBytes.size
+        System.arraycopy(programBytes, 0, memory.rom, 0, programBytes.size)
+        memory.programSize = programBytes.size
     }
 
     fun run() {
-        while (cpu.programCounter.value < cpu.memory.programSize) {
-            val pc = cpu.programCounter.value
+        while (programCounter.value < memory.programSize) {
+            val pc = programCounter.value
             val instructionBytes = cpu.memory.rom.sliceArray(pc until pc + 2)
             val instruction = instructionBytes.joinToString("") { "%02X".format(it) }
-
+            if (instruction == "0000") break
             try {
                 InstructionSet.execute(instruction, cpu)
             } catch (e: Exception) {
