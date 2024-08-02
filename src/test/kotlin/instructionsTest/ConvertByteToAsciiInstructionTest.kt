@@ -1,6 +1,6 @@
 package instructionsTest
 
-import org.example.CPU
+import org.example.Emulator
 import org.example.instructions.ConvertByteToAsciiInstruction
 import org.junit.jupiter.api.Assertions.assertThrows
 import kotlin.test.Test
@@ -10,8 +10,9 @@ class ConvertByteToAsciiInstructionTest {
 
     @Test
     fun testConvertByteToAsciiInstruction() {
-        // Create a CPU instance
-        val cpu = CPU()
+        // Create an emulator instance
+        val emulator = Emulator()
+        val cpu = emulator.cpu
 
         // Set initial values in the registers
         cpu.registers[0] = 0xA.toByte() // Set r0 to 0xA (10 in decimal)
@@ -23,7 +24,7 @@ class ConvertByteToAsciiInstructionTest {
         val instruction = "E010"
 
         // Execute the instruction
-        convertByteToAsciiInstruction.execute(cpu, instruction)
+        convertByteToAsciiInstruction.execute(emulator, instruction)
 
         // Check if the ASCII value was stored correctly in r1
         println(cpu.registers[1])
@@ -34,8 +35,9 @@ class ConvertByteToAsciiInstructionTest {
 
     @Test
     fun testConvertByteToAsciiInstructionValueOutOfRange() {
-        // Create a CPU instance
-        val cpu = CPU()
+        // Create an emulator instance
+        val emulator = Emulator()
+        val cpu = emulator.cpu
 
         // Set initial values in the registers
         cpu.registers[0] = 0x10.toByte() // Set r0 to 0x10 (16 in decimal, out of range for hex digit)
@@ -49,7 +51,7 @@ class ConvertByteToAsciiInstructionTest {
 
         // Execute the instruction and expect an exception
         val exception = assertThrows(IllegalArgumentException::class.java) {
-            convertByteToAsciiInstruction.execute(cpu, instruction)
+            convertByteToAsciiInstruction.execute(emulator, instruction)
         }
         assertEquals("Value in register is greater than F", exception.message)
 

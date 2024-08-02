@@ -1,9 +1,11 @@
 package org.example.instructions
 
-import org.example.CPU
+import org.example.Emulator
 
 class SetTInstruction : Instruction() {
-    override fun execute(cpu: CPU, instruction: String) {
+    override fun execute(emulator: Emulator, instruction: String) {
+        val cpu = emulator.cpu
+
         // Extract the value to set to register T from the instruction
         val value = instruction.substring(1, 3).toInt(16)
 

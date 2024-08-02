@@ -3,9 +3,11 @@ package org.example
 import java.io.File
 
 class Emulator {
-    private val cpu = CPU()
-    private val memory = cpu.memory
+    val cpu = CPU()
+    val memory = Memory()
     private val programCounter = cpu.programCounter
+    val screen = Screen()
+    var keyboard = Keyboard()
 
     fun loadProgram(filePath: String) {
         val file = File(filePath)
@@ -17,11 +19,11 @@ class Emulator {
     fun run() {
         while (programCounter.value < memory.programSize) {
             val pc = programCounter.value
-            val instructionBytes = cpu.memory.rom.sliceArray(pc until pc + 2)
+            val instructionBytes = memory.rom.sliceArray(pc until pc + 2)
             val instruction = instructionBytes.joinToString("") { "%02X".format(it) }
             if (instruction == "0000") break
             try {
-                InstructionSet.execute(instruction, cpu)
+                InstructionSet.execute(instruction, this)
             } catch (e: Exception) {
                 println("Error executing instruction at address $pc: ${e.message}")
                 break

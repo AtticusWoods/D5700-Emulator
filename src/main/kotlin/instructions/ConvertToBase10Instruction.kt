@@ -1,9 +1,11 @@
 package org.example.instructions
 
-import org.example.CPU
+import org.example.Emulator
 
 class ConvertToBase10Instruction : Instruction() {
-    override fun execute(cpu: CPU, instruction: String) {
+    override fun execute(emulator: Emulator, instruction: String) {
+        val cpu = emulator.cpu
+        val memory = emulator.memory
         // Extract register index from the instruction
         val xRegisterIndex = instruction[1].toString().toInt(16)
 
@@ -17,9 +19,9 @@ class ConvertToBase10Instruction : Instruction() {
 
         // Store the digits in the memory locations specified by register A
         val address = cpu.addressRegister
-        cpu.memory.ram[address] = hundreds.toByte()
-        cpu.memory.ram[address + 1] = tens.toByte()
-        cpu.memory.ram[address + 2] = ones.toByte()
+        memory.ram[address] = hundreds.toByte()
+        memory.ram[address + 1] = tens.toByte()
+        memory.ram[address + 2] = ones.toByte()
 
         // Increment the program counter
         cpu.programCounter.increment()

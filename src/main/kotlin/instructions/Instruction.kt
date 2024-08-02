@@ -1,7 +1,7 @@
 package org.example.instructions
 
-import org.example.CPU
+import org.example.Emulator
 
 abstract class Instruction {
-    abstract fun execute(cpu: CPU, instruction: String)
+    abstract fun execute(emulator: Emulator, instruction: String)
 }

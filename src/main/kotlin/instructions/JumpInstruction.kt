@@ -1,9 +1,12 @@
 package org.example.instructions
 
 import org.example.CPU
+import org.example.Emulator
 
 class JumpInstruction : Instruction() {
-    override fun execute(cpu: CPU, instruction: String) {
+    override fun execute(emulator: Emulator, instruction: String) {
+        val cpu = emulator.cpu
+
         // Extract the address from the instruction
         val address = instruction.substring(1).toInt(16)
 

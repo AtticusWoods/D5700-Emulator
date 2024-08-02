@@ -1,9 +1,13 @@
 package org.example.instructions
 
 import org.example.CPU
+import org.example.Emulator
 
 class ReadInstruction : Instruction() {
-    override fun execute(cpu: CPU, instruction: String) {
+    override fun execute(emulator: Emulator, instruction: String) {
+        val cpu = emulator.cpu
+        val memory = emulator.memory
+
         // Extract the register index from the instruction
         val registerIndex = instruction[1].toString().toInt(16) // 2nd character is the register index
 
@@ -11,12 +15,12 @@ class ReadInstruction : Instruction() {
         val address = cpu.addressRegister
 
         // Read the value from memory
-        val value = if (cpu.memory.memoryFlag == 1) {
+        val value = if (memory.memoryFlag == 1) {
             // Read from ROM if memory flag M is 1
-            cpu.memory.readROM(address)
+            memory.readROM(address)
         } else {
             // Read from RAM otherwise
-            cpu.memory.read(address)
+            memory.read(address)
         }
 
         // Store the value in the specified register

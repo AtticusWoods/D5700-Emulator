@@ -1,6 +1,6 @@
 package instructionsTest
 
-import org.example.CPU
+import org.example.Emulator
 import org.example.instructions.JumpInstruction
 import org.junit.jupiter.api.Assertions.assertEquals
 import kotlin.test.Test
@@ -10,8 +10,9 @@ class JumpInstructionTest {
 
     @Test
     fun testJumpInstructionValidAddress() {
-        // Create a CPU instance
-        val cpu = CPU()
+        // Create an emulator instance
+        val emulator = Emulator()
+        val cpu = emulator.cpu
 
         // Create the JumpInstruction instance
         val jumpInstruction = JumpInstruction()
@@ -20,7 +21,7 @@ class JumpInstructionTest {
         val instruction = "51F2" // This means jump to address 1F2
 
         // Execute the instruction
-        jumpInstruction.execute(cpu, instruction)
+        jumpInstruction.execute(emulator, instruction)
 
         // Check if the program counter was set correctly
         assertEquals(0x1F2, cpu.programCounter.value)
@@ -28,8 +29,9 @@ class JumpInstructionTest {
 
     @Test
     fun testJumpInstructionInvalidAddress() {
-        // Create a CPU instance
-        val cpu = CPU()
+        // Create an emulator instance
+        val emulator = Emulator()
+        val cpu = emulator.cpu
 
         // Create the JumpInstruction instance
         val jumpInstruction = JumpInstruction()
@@ -38,7 +40,7 @@ class JumpInstructionTest {
         val instruction = "51F3" // This means jump to address 1F3 which is not divisible by 2
 
         // Execute the instruction and assert failure
-        assertFailsWith<IllegalArgumentException> {jumpInstruction.execute(cpu, instruction)}
+        assertFailsWith<IllegalArgumentException> {jumpInstruction.execute(emulator, instruction)}
 
     }
 }

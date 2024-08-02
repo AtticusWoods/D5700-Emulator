@@ -1,9 +1,12 @@
 package org.example.instructions
 
 import org.example.CPU
+import org.example.Emulator
 
 class DrawInstruction : Instruction() {
-    override fun execute(cpu: CPU, instruction: String) {
+    override fun execute(emulator: Emulator, instruction: String) {
+        val cpu = emulator.cpu
+        val screen = emulator.screen
         // Extract register indices from the instruction
         val xRegisterIndex = instruction[1].toString().toInt(16)
         val row = instruction[2].toString().toInt(16)
@@ -18,18 +21,18 @@ class DrawInstruction : Instruction() {
         }
 
         // Ensure the row and column are within bounds
-        if (row < 0 || row >= cpu.screen.height || column < 0 || column >= cpu.screen.width) {
+        if (row < 0 || row >= screen.height || column < 0 || column >= screen.width) {
             throw IllegalArgumentException("Row or column out of bounds")
         }
 
         // Convert the row and column to the address in the screen RAM
-        val address = row * cpu.screen.width + column
+        val address = row * screen.width + column
 
         // Write the ASCII character to the screen's internal RAM
-        cpu.screen.ram[address] = value.toByte()
+        screen.ram[address] = value.toByte()
 
         // Display Screen
-        cpu.screen.display()
+        screen.display()
 
         // Increment the program counter
         cpu.programCounter.increment()

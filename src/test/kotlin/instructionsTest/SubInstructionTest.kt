@@ -1,6 +1,6 @@
 package instructionsTest
 
-import org.example.CPU
+import org.example.Emulator
 import org.example.instructions.SubInstruction
 import org.junit.jupiter.api.Assertions.assertEquals
 import kotlin.test.Test
@@ -9,8 +9,9 @@ class SubInstructionTest {
 
     @Test
     fun testSubInstruction() {
-        // Create a CPU instance
-        val cpu = CPU()
+        // Create an emulator instance
+        val emulator = Emulator()
+        val cpu = emulator.cpu
 
         // Initialize the registers
         cpu.registers[1] = 5 // xRegister
@@ -23,7 +24,7 @@ class SubInstructionTest {
         val instruction = "1123" // subtract the value of register 1 and 2 and store in register 3
 
         // Execute the instruction
-        addInstruction.execute(cpu, instruction)
+        addInstruction.execute(emulator, instruction)
 
         // Check if the result is correct
         assertEquals((-5).toByte(), cpu.registers[3])

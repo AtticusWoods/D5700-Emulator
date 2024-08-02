@@ -1,6 +1,6 @@
 package instructionsTest
 
-import org.example.CPU
+import org.example.Emulator
 import org.example.instructions.SkipNotEqualInstruction
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -9,8 +9,9 @@ class SkipNotEqualInstructionTest {
 
     @Test
     fun testSkipNotEqualInstructionEqualRegisters() {
-        // Create a CPU instance
-        val cpu = CPU()
+        // Create an emulator instance
+        val emulator = Emulator()
+        val cpu = emulator.cpu
 
         // Initialize registers
         cpu.registers[1] = 0x5
@@ -23,7 +24,7 @@ class SkipNotEqualInstructionTest {
         val instruction = "3120" // This means compare register 1 and register 2
 
         // Execute the instruction
-        skipNotEqualInstruction.execute(cpu, instruction)
+        skipNotEqualInstruction.execute(emulator, instruction)
 
         // Check if the program counter was incremented correctly (by 2)
         assertEquals(2, cpu.programCounter.value)
@@ -31,8 +32,9 @@ class SkipNotEqualInstructionTest {
 
     @Test
     fun testSkipNotEqualInstructionNotEqualRegisters() {
-        // Create a CPU instance
-        val cpu = CPU()
+        // Create an emulator instance
+        val emulator = Emulator()
+        val cpu = emulator.cpu
 
         // Initialize registers
         cpu.registers[1] = 0x5
@@ -45,7 +47,7 @@ class SkipNotEqualInstructionTest {
         val instruction = "3120" // This means compare register 1 and register 2
 
         // Execute the instruction
-        skipNotEqualInstruction.execute(cpu, instruction)
+        skipNotEqualInstruction.execute(emulator, instruction)
 
         // Check if the program counter was incremented correctly (by 4)
         assertEquals(4, cpu.programCounter.value)

@@ -1,6 +1,6 @@
 package instructionsTest
 
-import org.example.CPU
+import org.example.Emulator
 import org.example.instructions.SetAInstruction
 import org.junit.jupiter.api.Assertions.assertEquals
 import kotlin.test.Test
@@ -9,8 +9,9 @@ class SetAInstructionTest {
 
     @Test
     fun testSetAInstruction() {
-        // Create a CPU instance
-        val cpu = CPU()
+        // Create an emulator instance
+        val emulator = Emulator()
+        val cpu = emulator.cpu
 
         // Create the SetAInstruction instance
         val setAInstruction = SetAInstruction()
@@ -19,7 +20,7 @@ class SetAInstructionTest {
         val instruction = "A255" // This means set register A to 0x255
 
         // Execute the instruction
-        setAInstruction.execute(cpu, instruction)
+        setAInstruction.execute(emulator, instruction)
 
         // Check if the A register was set correctly
         assertEquals(0x255, cpu.addressRegister)

@@ -1,6 +1,6 @@
 package instructionsTest
 
-import org.example.CPU
+import org.example.Emulator
 import org.example.Keyboard
 import org.example.instructions.ReadKeyboardInstruction
 import org.junit.jupiter.api.Assertions.assertThrows
@@ -13,12 +13,14 @@ class ReadKeyboardInstructionTest {
 
     @Test
     fun testReadKeyboardInstructionValidInput() {
-        // Create a CPU instance
-        val cpu = CPU()
+        // Create an emulator instance
+        val emulator = Emulator()
+        val cpu = emulator.cpu
+
 
         // Mock the Keyboard class
         val mockKeyboard = mock(Keyboard::class.java)
-        cpu.keyboard = mockKeyboard
+        emulator.keyboard = mockKeyboard
 
         // Simulate valid keyboard input
         `when`(mockKeyboard.readInput()).thenReturn("A")
@@ -30,7 +32,7 @@ class ReadKeyboardInstructionTest {
         val instruction = "6200"
 
         // Execute the instruction
-        readKeyboardInstruction.execute(cpu, instruction)
+        readKeyboardInstruction.execute(emulator, instruction)
 
         // Check if the result is correct
         assertEquals(0xA.toByte(), cpu.registers[2])
@@ -40,12 +42,13 @@ class ReadKeyboardInstructionTest {
 
     @Test
     fun testReadKeyboardInstructionEmptyInput() {
-        // Create a CPU instance
-        val cpu = CPU()
+        // Create an emulator instance
+        val emulator = Emulator()
+        val cpu = emulator.cpu
 
         // Mock the Keyboard class
         val mockKeyboard = mock(Keyboard::class.java)
-        cpu.keyboard = mockKeyboard
+        emulator.keyboard = mockKeyboard
 
         // Simulate empty keyboard input
         `when`(mockKeyboard.readInput()).thenReturn("")
@@ -57,7 +60,7 @@ class ReadKeyboardInstructionTest {
         val instruction = "6200"
 
         // Execute the instruction
-        readKeyboardInstruction.execute(cpu, instruction)
+        readKeyboardInstruction.execute(emulator, instruction)
 
         // Check if the result is correct
         assertEquals(0x0.toByte(), cpu.registers[2])
@@ -67,14 +70,13 @@ class ReadKeyboardInstructionTest {
 
     @Test
     fun testReadKeyboardInstructionInvalidInput() {
-
-
-        // Create a CPU instance
-        val cpu = CPU()
+        // Create an emulator instance
+        val emulator = Emulator()
+        val cpu = emulator.cpu
 
         // Mock the Keyboard class
         val mockKeyboard = mock(Keyboard::class.java)
-        cpu.keyboard = mockKeyboard
+        emulator.keyboard = mockKeyboard
 
         // Simulate invalid keyboard input
         `when`(mockKeyboard.readInput()).thenReturn("G")
@@ -87,7 +89,7 @@ class ReadKeyboardInstructionTest {
 
         // Execute the instruction
         val exception = assertThrows(IllegalArgumentException::class.java) {
-            readKeyboardInstruction.execute(cpu, instruction)
+            readKeyboardInstruction.execute(emulator, instruction)
         }
         assertEquals("Invalid input: Only base-16 digits (0-F) are allowed", exception.message)
     }

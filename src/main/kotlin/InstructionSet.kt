@@ -26,9 +26,9 @@ object   InstructionSet {
 
     }
 
-    fun execute(instruction: String, cpu: CPU) {
+    fun execute(instruction: String, emulator: Emulator) {
         val opcode = instruction[0].toString() // Get the opcode from the instruction
         val instructionHandler = instructions[opcode]
-        instructionHandler?.execute(cpu, instruction) ?: throw IllegalArgumentException("Unknown instruction: $instruction")
+        instructionHandler?.execute(emulator, instruction) ?: throw IllegalArgumentException("Unknown instruction: $instruction")
     }
 }

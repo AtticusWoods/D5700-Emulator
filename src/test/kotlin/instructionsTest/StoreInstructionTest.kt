@@ -1,7 +1,6 @@
 package instructionsTest
 
-import org.example.CPU
-
+import org.example.Emulator
 import org.example.instructions.StoreInstruction
 import org.junit.jupiter.api.Assertions.assertEquals
 import kotlin.test.Test
@@ -10,8 +9,9 @@ class StoreInstructionTest {
 
     @Test
     fun testStoreInstruction() {
-        // Create a CPU instance
-        val cpu = CPU()
+        // Create an emulator instance
+        val emulator = Emulator()
+        val cpu = emulator.cpu
 
         // Initialize the register
         cpu.registers[1] = 5 // xRegister
@@ -24,8 +24,8 @@ class StoreInstructionTest {
         val instruction2 = "0310" //Store 16 in register 3 to test storing in empty register
 
         // Execute the instruction
-        addInstruction.execute(cpu, instruction)
-        addInstruction.execute(cpu, instruction2)
+        addInstruction.execute(emulator, instruction)
+        addInstruction.execute(emulator, instruction2)
 
         // Check if the result is correct
         assertEquals(35.toByte(), cpu.registers[1])

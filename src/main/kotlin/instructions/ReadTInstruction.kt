@@ -1,9 +1,11 @@
 package org.example.instructions
 
-import org.example.CPU
+import org.example.Emulator
 
 class ReadTInstruction : Instruction() {
-    override fun execute(cpu: CPU, instruction: String) {
+    override fun execute(emulator: Emulator, instruction: String) {
+        val cpu = emulator.cpu
+
         // Extract register index from the instruction
         val xRegisterIndex = instruction[1].toString().toInt(16)
 

@@ -1,16 +1,19 @@
 package org.example.instructions
 
-import org.example.CPU
+import org.example.Emulator
 
 class ReadKeyboardInstruction : Instruction() {
-    override fun execute(cpu: CPU, instruction: String) {
+    override fun execute(emulator: Emulator, instruction: String) {
+        val cpu = emulator.cpu
+        val keyboard = emulator.keyboard
+
         // Extract the register index from the instruction
         val registerIndex = instruction[1].toString().toInt(16)
 
         // Pause the program and wait for keyboard input
         var input: String?
         do {
-            input = cpu.keyboard.readInput()
+            input = keyboard.readInput()
         } while (input == null)
 
         if (input == "") input = "0"
