@@ -1,8 +1,8 @@
 package org.example.instructions
 
-import org.example.CPU
 import org.example.Emulator
 
+@kotlin.ExperimentalUnsignedTypes
 class JumpInstruction : Instruction() {
     override fun execute(emulator: Emulator, instruction: String) {
         val cpu = emulator.cpu

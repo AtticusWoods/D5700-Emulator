@@ -1,8 +1,8 @@
 package org.example.instructions
 
-import org.example.CPU
 import org.example.Emulator
 
+@kotlin.ExperimentalUnsignedTypes
 class AddInstruction : Instruction() {
     override fun execute(emulator: Emulator, instruction: String) {
         val cpu = emulator.cpu
@@ -17,7 +17,7 @@ class AddInstruction : Instruction() {
         val result = cpu.registers[xRegisterIndex] + cpu.registers[yRegisterIndex]
 
         // Store the result in the destination register (assuming the result fits in a byte)
-        cpu.registers[destinationRegisterIndex] = result.toByte()
+        cpu.registers[destinationRegisterIndex] = result.toUByte()
 
         // Increment the program counter
         cpu.programCounter.increment()

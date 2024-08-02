@@ -2,6 +2,7 @@ package org.example.instructions
 
 import org.example.Emulator
 
+@kotlin.ExperimentalUnsignedTypes
 class SetAInstruction : Instruction() {
     override fun execute(emulator: Emulator, instruction: String) {
         val cpu = emulator.cpu

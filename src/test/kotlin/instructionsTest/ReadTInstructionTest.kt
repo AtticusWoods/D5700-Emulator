@@ -5,6 +5,7 @@ import org.example.instructions.ReadTInstruction
 import org.junit.jupiter.api.Assertions.assertEquals
 import kotlin.test.Test
 
+@OptIn(ExperimentalUnsignedTypes::class)
 class ReadTInstructionTest {
 
     @Test
@@ -29,7 +30,7 @@ class ReadTInstructionTest {
         readTInstruction.execute(emulator, instruction)
 
         // Check if the value of register T was stored correctly in r0
-        assertEquals(0x0A.toByte(), cpu.registers[1])
+        assertEquals(0x0A.toUByte(), cpu.registers[1])
         // Check if the program counter was incremented correctly
         assertEquals(2, cpu.programCounter.value)
     }

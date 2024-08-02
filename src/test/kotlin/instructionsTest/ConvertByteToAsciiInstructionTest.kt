@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Assertions.assertThrows
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
+@OptIn(ExperimentalUnsignedTypes::class)
 class ConvertByteToAsciiInstructionTest {
 
     @Test
@@ -15,7 +16,7 @@ class ConvertByteToAsciiInstructionTest {
         val cpu = emulator.cpu
 
         // Set initial values in the registers
-        cpu.registers[0] = 0xA.toByte() // Set r0 to 0xA (10 in decimal)
+        cpu.registers[0] = 0xA.toUByte() // Set r0 to 0xA (10 in decimal)
 
         // Create the ConvertByteToAsciiInstruction instance
         val convertByteToAsciiInstruction = ConvertByteToAsciiInstruction()
@@ -28,7 +29,7 @@ class ConvertByteToAsciiInstructionTest {
 
         // Check if the ASCII value was stored correctly in r1
         println(cpu.registers[1])
-        assertEquals('A'.code.toByte(), cpu.registers[1])
+        assertEquals('A'.code.toUByte(), cpu.registers[1])
         // Check if the program counter was incremented correctly
         assertEquals(2, cpu.programCounter.value)
     }
@@ -40,7 +41,7 @@ class ConvertByteToAsciiInstructionTest {
         val cpu = emulator.cpu
 
         // Set initial values in the registers
-        cpu.registers[0] = 0x10.toByte() // Set r0 to 0x10 (16 in decimal, out of range for hex digit)
+        cpu.registers[0] = 0x10.toUByte() // Set r0 to 0x10 (16 in decimal, out of range for hex digit)
 
         // Create the ConvertByteToAsciiInstruction instance
         val convertByteToAsciiInstruction = ConvertByteToAsciiInstruction()

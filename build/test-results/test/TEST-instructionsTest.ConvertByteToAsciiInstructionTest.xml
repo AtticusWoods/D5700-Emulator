@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="instructionsTest.ConvertByteToAsciiInstructionTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-08-02T17:49:21" hostname="FINCHCOMP" time="0.041">
+<testsuite name="instructionsTest.ConvertByteToAsciiInstructionTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-08-02T20:52:27" hostname="FINCHCOMP" time="0.014">
   <properties/>
-  <testcase name="testConvertByteToAsciiInstruction()" classname="instructionsTest.ConvertByteToAsciiInstructionTest" time="0.033"/>
-  <testcase name="testConvertByteToAsciiInstructionValueOutOfRange()" classname="instructionsTest.ConvertByteToAsciiInstructionTest" time="0.006"/>
+  <testcase name="testConvertByteToAsciiInstruction()" classname="instructionsTest.ConvertByteToAsciiInstructionTest" time="0.009"/>
+  <testcase name="testConvertByteToAsciiInstructionValueOutOfRange()" classname="instructionsTest.ConvertByteToAsciiInstructionTest" time="0.004"/>
   <system-out><![CDATA[65
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

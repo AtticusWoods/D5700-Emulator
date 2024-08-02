@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="instructionsTest.AddInstructionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-08-02T17:49:21" hostname="FINCHCOMP" time="0.007">
+<testsuite name="instructionsTest.AddInstructionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-08-02T20:52:27" hostname="FINCHCOMP" time="0.015">
   <properties/>
-  <testcase name="testAddInstruction()" classname="instructionsTest.AddInstructionTest" time="0.007"/>
+  <testcase name="testAddInstruction()" classname="instructionsTest.AddInstructionTest" time="0.015"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

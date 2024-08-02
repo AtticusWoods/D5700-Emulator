@@ -2,6 +2,7 @@ package org.example.instructions
 
 import org.example.Emulator
 
+@kotlin.ExperimentalUnsignedTypes
 class ConvertToBase10Instruction : Instruction() {
     override fun execute(emulator: Emulator, instruction: String) {
         val cpu = emulator.cpu
@@ -19,9 +20,9 @@ class ConvertToBase10Instruction : Instruction() {
 
         // Store the digits in the memory locations specified by register A
         val address = cpu.addressRegister
-        memory.ram[address] = hundreds.toByte()
-        memory.ram[address + 1] = tens.toByte()
-        memory.ram[address + 2] = ones.toByte()
+        memory.ram[address] = hundreds.toUByte()
+        memory.ram[address + 1] = tens.toUByte()
+        memory.ram[address + 2] = ones.toUByte()
 
         // Increment the program counter
         cpu.programCounter.increment()

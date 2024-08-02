@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertThrows
 import kotlin.test.Test
 
+@OptIn(ExperimentalUnsignedTypes::class)
 class DrawInstructionTest {
 
     @Test
@@ -17,9 +18,9 @@ class DrawInstructionTest {
         val screen = emulator.screen
 
         // Set initial values in the registers
-        cpu.registers[1] = 'A'.code.toByte() // Set r1 to ASCII value for 'A'
-        cpu.registers[2] = 3.toByte() // Set r2 to row 3
-        cpu.registers[3] = 4.toByte() // Set r3 to column 4
+        cpu.registers[1] = 'A'.code.toUByte() // Set r1 to ASCII value for 'A'
+        cpu.registers[2] = 3.toUByte() // Set r2 to row 3
+        cpu.registers[3] = 4.toUByte() // Set r3 to column 4
 
         // Create the DrawInstruction instance
         val drawInstruction = DrawInstruction()
@@ -35,7 +36,7 @@ class DrawInstructionTest {
         val address = 2 * screen.width + 3
 
         // Check if the ASCII value was stored correctly in the screen's internal RAM
-        assertEquals('A'.toByte(), screen.ram[address])
+        assertEquals('A'.toByte().toUByte(), screen.ram[address])
         // Check if the program counter was incremented correctly
         assertEquals(2, cpu.programCounter.value)
     }
@@ -47,7 +48,7 @@ class DrawInstructionTest {
         val cpu = emulator.cpu
 
         // Set initial values in the registers
-        cpu.registers[1] = 0x80.toByte() // Set r1 to 0x80 (128 in decimal, out of range for ASCII)
+        cpu.registers[1] = 0x80.toUByte() // Set r1 to 0x80 (128 in decimal, out of range for ASCII)
 
         // Create the DrawInstruction instance
         val drawInstruction = DrawInstruction()

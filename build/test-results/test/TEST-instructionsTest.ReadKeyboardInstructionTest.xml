@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="instructionsTest.ReadKeyboardInstructionTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-08-02T17:49:21" hostname="FINCHCOMP" time="2.046">
+<testsuite name="instructionsTest.ReadKeyboardInstructionTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-08-02T20:52:28" hostname="FINCHCOMP" time="1.979">
   <properties/>
-  <testcase name="testReadKeyboardInstructionInvalidInput()" classname="instructionsTest.ReadKeyboardInstructionTest" time="2.021"/>
-  <testcase name="testReadKeyboardInstructionEmptyInput()" classname="instructionsTest.ReadKeyboardInstructionTest" time="0.008"/>
-  <testcase name="testReadKeyboardInstructionValidInput()" classname="instructionsTest.ReadKeyboardInstructionTest" time="0.006"/>
+  <testcase name="testReadKeyboardInstructionInvalidInput()" classname="instructionsTest.ReadKeyboardInstructionTest" time="1.963"/>
+  <testcase name="testReadKeyboardInstructionEmptyInput()" classname="instructionsTest.ReadKeyboardInstructionTest" time="0.005"/>
+  <testcase name="testReadKeyboardInstructionValidInput()" classname="instructionsTest.ReadKeyboardInstructionTest" time="0.004"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

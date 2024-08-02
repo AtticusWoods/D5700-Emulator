@@ -5,6 +5,7 @@ import org.example.instructions.SkipNotEqualInstruction
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
+@OptIn(ExperimentalUnsignedTypes::class)
 class SkipNotEqualInstructionTest {
 
     @Test
@@ -14,8 +15,8 @@ class SkipNotEqualInstructionTest {
         val cpu = emulator.cpu
 
         // Initialize registers
-        cpu.registers[1] = 0x5
-        cpu.registers[2] = 0x5
+        cpu.registers[1] = 5u
+        cpu.registers[2] = 5u
 
         // Create the SkipEqualInstruction instance
         val skipNotEqualInstruction = SkipNotEqualInstruction()
@@ -37,8 +38,8 @@ class SkipNotEqualInstructionTest {
         val cpu = emulator.cpu
 
         // Initialize registers
-        cpu.registers[1] = 0x5
-        cpu.registers[2] = 0x3
+        cpu.registers[1] = 5u
+        cpu.registers[2] = 3u
 
         // Create the SkipEqualInstruction instance
         val skipNotEqualInstruction = SkipNotEqualInstruction()

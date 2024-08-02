@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="MemoryTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-08-02T20:52:27" hostname="FINCHCOMP" time="0.118">
+  <properties/>
+  <testcase name="testMemoryInitialization()" classname="MemoryTest" time="0.008"/>
+  <testcase name="testReadWriteRAM()" classname="MemoryTest" time="0.105"/>
+  <testcase name="testReadWriteROM()" classname="MemoryTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

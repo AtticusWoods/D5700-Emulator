@@ -8,7 +8,7 @@ import kotlin.test.Test
 import org.mockito.Mockito.*
 import kotlin.test.assertEquals
 
-
+@OptIn(ExperimentalUnsignedTypes::class)
 class ReadKeyboardInstructionTest {
 
     @Test
@@ -35,7 +35,7 @@ class ReadKeyboardInstructionTest {
         readKeyboardInstruction.execute(emulator, instruction)
 
         // Check if the result is correct
-        assertEquals(0xA.toByte(), cpu.registers[2])
+        assertEquals(0xA.toUByte(), cpu.registers[2])
         // Check if the program counter was incremented correctly
         assertEquals(2, cpu.programCounter.value)
     }
@@ -63,7 +63,7 @@ class ReadKeyboardInstructionTest {
         readKeyboardInstruction.execute(emulator, instruction)
 
         // Check if the result is correct
-        assertEquals(0x0.toByte(), cpu.registers[2])
+        assertEquals(0x0.toUByte(), cpu.registers[2])
         // Check if the program counter was incremented correctly
         assertEquals(2, cpu.programCounter.value)
     }

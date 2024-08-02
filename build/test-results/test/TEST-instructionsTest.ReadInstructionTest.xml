@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="instructionsTest.ReadInstructionTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-08-02T17:49:21" hostname="FINCHCOMP" time="0.013">
+<testsuite name="instructionsTest.ReadInstructionTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-08-02T20:52:28" hostname="FINCHCOMP" time="0.006">
   <properties/>
   <testcase name="testReadInstructionFromRAM()" classname="instructionsTest.ReadInstructionTest" time="0.004"/>
-  <testcase name="testReadInstructionFromROM()" classname="instructionsTest.ReadInstructionTest" time="0.006"/>
+  <testcase name="testReadInstructionFromROM()" classname="instructionsTest.ReadInstructionTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

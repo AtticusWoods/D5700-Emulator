@@ -2,6 +2,7 @@ package org.example.instructions
 
 import org.example.Emulator
 
+@kotlin.ExperimentalUnsignedTypes
 class ReadKeyboardInstruction : Instruction() {
     override fun execute(emulator: Emulator, instruction: String) {
         val cpu = emulator.cpu
@@ -26,7 +27,7 @@ class ReadKeyboardInstruction : Instruction() {
         }
 
         // Store the parsed number in the specified register
-        cpu.registers[registerIndex] = value.toByte()
+        cpu.registers[registerIndex] = value.toUByte()
 
         // Increment the program counter
         cpu.programCounter.increment()

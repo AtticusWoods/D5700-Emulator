@@ -1,8 +1,8 @@
 package org.example.instructions
 
-import org.example.CPU
 import org.example.Emulator
 
+@kotlin.ExperimentalUnsignedTypes
 class DrawInstruction : Instruction() {
     override fun execute(emulator: Emulator, instruction: String) {
         val cpu = emulator.cpu
@@ -29,7 +29,7 @@ class DrawInstruction : Instruction() {
         val address = row * screen.width + column
 
         // Write the ASCII character to the screen's internal RAM
-        screen.ram[address] = value.toByte()
+        screen.ram[address] = value.toUByte()
 
         // Display Screen
         screen.display()

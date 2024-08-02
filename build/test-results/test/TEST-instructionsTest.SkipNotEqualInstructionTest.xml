@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="instructionsTest.SkipNotEqualInstructionTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-08-02T17:49:24" hostname="FINCHCOMP" time="0.012">
+<testsuite name="instructionsTest.SkipNotEqualInstructionTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-08-02T20:52:30" hostname="FINCHCOMP" time="0.008">
   <properties/>
-  <testcase name="testSkipNotEqualInstructionEqualRegisters()" classname="instructionsTest.SkipNotEqualInstructionTest" time="0.007"/>
-  <testcase name="testSkipNotEqualInstructionNotEqualRegisters()" classname="instructionsTest.SkipNotEqualInstructionTest" time="0.003"/>
+  <testcase name="testSkipNotEqualInstructionEqualRegisters()" classname="instructionsTest.SkipNotEqualInstructionTest" time="0.005"/>
+  <testcase name="testSkipNotEqualInstructionNotEqualRegisters()" classname="instructionsTest.SkipNotEqualInstructionTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

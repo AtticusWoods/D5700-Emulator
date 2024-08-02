@@ -2,6 +2,7 @@ package org.example.instructions
 
 import org.example.Emulator
 
+@kotlin.ExperimentalUnsignedTypes
 class ReadTInstruction : Instruction() {
     override fun execute(emulator: Emulator, instruction: String) {
         val cpu = emulator.cpu
@@ -10,7 +11,7 @@ class ReadTInstruction : Instruction() {
         val xRegisterIndex = instruction[1].toString().toInt(16)
 
         // Read the value of register T and store it in the specified register
-        cpu.registers[xRegisterIndex] = cpu.timer.value.toByte()
+        cpu.registers[xRegisterIndex] = cpu.timer.value.toUByte()
 
         // Increment the program counter
         cpu.programCounter.increment()

@@ -5,7 +5,7 @@ import org.example.instructions.ReadInstruction
 import org.junit.jupiter.api.Assertions.assertEquals
 import kotlin.test.Test
 
-
+@OptIn(ExperimentalUnsignedTypes::class)
 class ReadInstructionTest {
 
     @Test
@@ -17,7 +17,7 @@ class ReadInstructionTest {
 
         // Initialize the special address register A and write a value to RAM
         cpu.addressRegister = 10 // Address register A contains the address 10
-        memory.write(10, 42) // Write value 42 to RAM at address 10
+        memory.write(10, 42u) // Write value 42 to RAM at address 10
 
         // Create the ReadInstruction instance
         val readInstruction = ReadInstruction()
@@ -29,7 +29,7 @@ class ReadInstructionTest {
         readInstruction.execute(emulator, instruction)
 
         // Check if the result is correct
-        assertEquals(42.toByte(), cpu.registers[1])
+        assertEquals(42.toUByte(), cpu.registers[1])
         // Check if the program counter was incremented correctly
         assertEquals(2, cpu.programCounter.value)
     }
@@ -44,7 +44,7 @@ class ReadInstructionTest {
         // Set the memory flag to read from ROM
         memory.memoryFlag = 1
         cpu.addressRegister = 5 // Address register A contains the address 5
-        memory.loadProgram(byteArrayOf(0, 0, 0, 0, 0, 84)) // Write value 84 to ROM at address 5
+        memory.rom[5] = 84u
 
         // Create the ReadInstruction instance
         val readInstruction = ReadInstruction()
@@ -56,7 +56,7 @@ class ReadInstructionTest {
         readInstruction.execute(emulator, instruction)
 
         // Check if the result is correct
-        assertEquals(84.toByte(), cpu.registers[1])
+        assertEquals(84.toUByte(), cpu.registers[1])
         // Check if the program counter was incremented correctly
         assertEquals(2, cpu.programCounter.value)
     }

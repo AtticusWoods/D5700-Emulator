@@ -5,6 +5,7 @@ import org.example.instructions.ConvertToBase10Instruction
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
+@OptIn(ExperimentalUnsignedTypes::class)
 class ConvertToBase10InstructionTest {
 
     @Test
@@ -16,7 +17,7 @@ class ConvertToBase10InstructionTest {
 
         // Set the initial values
         cpu.addressRegister = 100 // Arbitrary address for testing
-        cpu.registers[2] = 123.toByte() // Set r2 to 123
+        cpu.registers[2] = 123.toUByte() // Set r2 to 123
 
         // Create the ConvertToBase10Instruction instance
         val convertToBase10Instruction = ConvertToBase10Instruction()
@@ -28,9 +29,9 @@ class ConvertToBase10InstructionTest {
         convertToBase10Instruction.execute(emulator, instruction)
 
         // Check if the digits were stored correctly
-        assertEquals(1.toByte(), memory.ram[100])
-        assertEquals(2.toByte(), memory.ram[101])
-        assertEquals(3.toByte(), memory.ram[102])
+        assertEquals(1.toUByte(), memory.ram[100])
+        assertEquals(2.toUByte(), memory.ram[101])
+        assertEquals(3.toUByte(), memory.ram[102])
         // Check if the program counter was incremented correctly
         assertEquals(2, cpu.programCounter.value)
     }

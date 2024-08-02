@@ -5,7 +5,7 @@ import org.example.instructions.AddInstruction
 import org.junit.jupiter.api.Assertions.assertEquals
 import kotlin.test.Test
 
-
+@OptIn(ExperimentalUnsignedTypes::class)
 class AddInstructionTest {
 
     @Test
@@ -15,8 +15,8 @@ class AddInstructionTest {
         val cpu = emulator.cpu
 
         // Initialize the registers
-        cpu.registers[1] = 5 // xRegister
-        cpu.registers[2] = 10 // yRegister
+        cpu.registers[1] = 5u // xRegister
+        cpu.registers[2] = 10u // yRegister
 
         // Create the AddInstruction instance
         val addInstruction = AddInstruction()
@@ -28,7 +28,7 @@ class AddInstructionTest {
         addInstruction.execute(emulator, instruction)
 
         // Check if the result is correct
-        assertEquals(15.toByte(), cpu.registers[3])
+        assertEquals(15.toUByte(), cpu.registers[3])
         // Check if the program counter was incremented correctly
         assertEquals(2, cpu.programCounter.value)
     }

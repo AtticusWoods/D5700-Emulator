@@ -1,12 +1,13 @@
 package org.example
 
+@kotlin.ExperimentalUnsignedTypes
 class Memory {
     var programSize: Int = 0
-    val ram: ByteArray = ByteArray(4096) //size of 4KB
-    val rom: ByteArray = ByteArray(4096)
+    val ram: UByteArray = UByteArray(4096) //size of 4KB
+    val rom: UByteArray = UByteArray(4096)
     var memoryFlag: Int = 0
 
-    fun read(address: Int): Byte {
+    fun read(address: Int): UByte {
         return if (address < ram.size) {
             ram[address]
         } else {
@@ -14,7 +15,7 @@ class Memory {
         }
     }
 
-    fun readROM(address: Int): Byte {
+    fun readROM(address: Int): UByte {
         return if (address < rom.size) {
             rom[address]
         } else {
@@ -22,7 +23,7 @@ class Memory {
         }
     }
 
-    fun write(address: Int, value: Byte) {
+    fun write(address: Int, value: UByte) {
         if (address < ram.size) {
             ram[address] = value
         } else {
@@ -31,7 +32,7 @@ class Memory {
         }
     }
 
-    fun writeROM(address: Int, value: Byte) {
+    fun writeROM(address: Int, value: UByte) {
         if (address < rom.size) {
             rom[address] = value
         } else {
@@ -39,7 +40,5 @@ class Memory {
         }
     }
 
-    fun loadProgram(program: ByteArray) {
-        System.arraycopy(program, 0, rom, 0, program.size.coerceAtMost(rom.size))
-    }
+
 }
